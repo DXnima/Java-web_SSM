@@ -43,10 +43,15 @@ mybatis是对jdbc的封装，它让数据库底层操作变的透明。mybatis�
         －pom.xml
         
         
-        controller：控制层。Controller层负责具体的业务模块流程的控制，在此层里面要调用Serice层的接口来控制业务流程，控制的配置也同样是在Spring的配置文件里面进行，针对具体的业务流程，会有不同的控制器，我们具体的设计过程中可以将流程进行抽象归纳，设计出可以重复利用的子单元流程模块，这样不仅使程序结构变得清晰，也大大减少了代码量。
+
+controller：控制层。Controller层负责具体的业务模块流程的控制，在此层里面要调用Serice层的接口来控制业务流程，控制的配置也同样是在Spring的配置文件里面进行，针对具体的业务流程，会有不同的控制器，我们具体的设计过程中可以将流程进行抽象归纳，设计出可以重复利用的子单元流程模块，这样不仅使程序结构变得清晰，也大大减少了代码量。
+
 dao： 持久层。DAO层主要是做数据持久层的工作，主要与数据库进行交互。DAO层首先会创建DAO接口，然后会在配置文件中定义该接口的实现类，接着就可以在模块中就可以调用DAO 的接口进行数据业务的而处理，并且不用关注此接口的具体实现类是哪一个类。DAO 层的数据源和数据库连接的参数数都是在配置文件中进行配置的。
+
 entity：实体层。也就是我们存放实体类的包。
+
 service：业务层。Service层主要负责业务模块的逻辑应用设计。是持久层的实现类。封装Service层的业务逻辑有利于通用的业务逻辑的独立性和重复利用性，程序显得非常简洁。
+
 接下来是前端部分：
 webapp目录下创建：
 css：存放前端css文件
@@ -65,20 +70,29 @@ index.jsp：这里我们把所有的网页文件放在views文件目录下需要
 
 
 #几个需要改的地方：
+
 jdbc.properties数据库配置文件：
+
 #版本低的com.mysql.jdbc.Driver 
+
 river=com.mysql.cj.jdbc.Driver 
+
 #mysql jar的位置
+
 mysqlurl=E:/maven-repository/mysql/mysql-connector-java/8.0.12/mysql-connector-java-8.0.12.jar
+
 #数据库地址
-本机IP用localhost，云服务器改为对应的公网IP
-url=jdbc:mysql://IP地址:端口号/数据库名?useUnicode=true&characterEncoding=utf-8
+#本机IP用localhost，云服务器改为对应的公网IP
+
+#url=jdbc:mysql://IP地址:端口号/数据库名?useUnicode=true&characterEncoding=utf-8
+
 url=jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8
 #数据库用户名
 username=root
 #数据库的密码
 password=*****
 
-generatorConfig.xml文件 最后面：
+#generatorConfig.xml文件 最后面：
+ 
  <table tableName="你自己的表名" domainObjectName="GetMsg" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 
