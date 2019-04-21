@@ -4,7 +4,7 @@
 借鉴：https://www.jianshu.com/p/ce9ac958d274
 https://www.cnblogs.com/verlen11/p/5349747.html
 
-SSM框架理解
+#SSM框架理解
 
 
 最近两星期一直在学JavaEE的MVC框架，因为之前学校开的JavaEE课程就一直学的吊儿郎当的，所以现在真正需要掌握就非常手忙脚乱，在此记录下这段时间学习的感悟，如有错误，希望大牛毫不客气地指出。
@@ -20,7 +20,7 @@ SpringMVC在项目中拦截用户请求，它的核心Servlet即DispatcherServle
 mybatis
 mybatis是对jdbc的封装，它让数据库底层操作变的透明。mybatis的操作都是围绕一个sqlSessionFactory实例展开的。mybatis通过配置文件关联到各实体类的Mapper文件，Mapper文件中配置了每个类对数据库所需进行的sql语句映射。在每次与数据库交互时，通过sqlSessionFactory拿到一个sqlSession，再执行sql命令。
 
-SSM框架整合
+#SSM框架整合
 要让几个框架相互配合，配置文件怎么写，项目的目录结构怎么设计对我这样一个新手来说实在很头疼。
 目前我也只刚刚写过一个用户登录的demo，在此记录一下。
 
@@ -70,9 +70,9 @@ jdbc.properties数据库配置文件：
 river=com.mysql.cj.jdbc.Driver 
 #mysql jar的位置
 mysqlurl=E:/maven-repository/mysql/mysql-connector-java/8.0.12/mysql-connector-java-8.0.12.jar
-# 数据库地址
-# 本机IP用localhost，云服务器改为对应的公网IP
-# url=jdbc:mysql://IP地址:端口号/数据库名?useUnicode=true&characterEncoding=utf-8
+#数据库地址
+本机IP用localhost，云服务器改为对应的公网IP
+url=jdbc:mysql://IP地址:端口号/数据库名?useUnicode=true&characterEncoding=utf-8
 url=jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8
 #数据库用户名
 username=root
