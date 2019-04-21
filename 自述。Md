@@ -1,5 +1,5 @@
 # Java-web_SSM
-Java web  ssm框架
+#Java web  ssm框架
 
 借鉴：https://www.jianshu.com/p/ce9ac958d274
 https://www.cnblogs.com/verlen11/p/5349747.html
@@ -64,7 +64,7 @@ index.jsp：这里我们把所有的网页文件放在views文件目录下需要
 
 
 
-几个需要改的地方：
+#几个需要改的地方：
 jdbc.properties数据库配置文件：
 #版本低的com.mysql.jdbc.Driver 
 river=com.mysql.cj.jdbc.Driver 
@@ -78,3 +78,7 @@ url=jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8
 username=root
 #数据库的密码
 password=*****
+
+generatorConfig.xml文件 最后面：
+ <table tableName="你自己的表名" domainObjectName="GetMsg" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+
