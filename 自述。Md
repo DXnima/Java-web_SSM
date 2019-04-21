@@ -61,3 +61,20 @@ index.jsp：这里我们把所有的网页文件放在views文件目录下需要
 
 作者：helloMiao
 链接：https://www.jianshu.com/p/452bce1a6bea
+
+
+
+几个需要改的地方：
+jdbc.properties数据库配置文件：
+#版本低的com.mysql.jdbc.Driver 
+river=com.mysql.cj.jdbc.Driver 
+#mysql jar的位置
+mysqlurl=E:/maven-repository/mysql/mysql-connector-java/8.0.12/mysql-connector-java-8.0.12.jar
+# 数据库地址
+# 本机IP用localhost，云服务器改为对应的公网IP
+# url=jdbc:mysql://IP地址:端口号/数据库名?useUnicode=true&characterEncoding=utf-8
+url=jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8
+#数据库用户名
+username=root
+#数据库的密码
+password=*****
