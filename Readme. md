@@ -1,6 +1,11 @@
 # Java-web_SSM
 Java web  ssm框架
+
+借鉴：https://www.jianshu.com/p/ce9ac958d274
+https://www.cnblogs.com/verlen11/p/5349747.html
+
 SSM框架理解
+
 
 最近两星期一直在学JavaEE的MVC框架，因为之前学校开的JavaEE课程就一直学的吊儿郎当的，所以现在真正需要掌握就非常手忙脚乱，在此记录下这段时间学习的感悟，如有错误，希望大牛毫不客气地指出。
  
