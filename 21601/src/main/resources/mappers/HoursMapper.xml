@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dx21601.dao.HoursMapper" >
+  <resultMap id="BaseResultMap" type="com.dx21601.pojo.Hours" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="h_sid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="h_shengfen" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="h_city" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="h_xiangxi" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="h_jingdu" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="h_weidu" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, h_sid, h_shengfen, h_city, h_xiangxi, h_jingdu, h_weidu
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from hours
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from hours
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dx21601.pojo.Hours" >
+    insert into hours (id, h_sid, h_shengfen, 
+      h_city, h_xiangxi, h_jingdu, 
+      h_weidu)
+    values (#{id,jdbcType=INTEGER}, #{hSid,jdbcType=VARCHAR}, #{hShengfen,jdbcType=VARCHAR}, 
+      #{hCity,jdbcType=VARCHAR}, #{hXiangxi,jdbcType=VARCHAR}, #{hJingdu,jdbcType=VARCHAR}, 
+      #{hWeidu,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dx21601.pojo.Hours" >
+    insert into hours
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="hSid != null" >
+        h_sid,
+      </if>
+      <if test="hShengfen != null" >
+        h_shengfen,
+      </if>
+      <if test="hCity != null" >
+        h_city,
+      </if>
+      <if test="hXiangxi != null" >
+        h_xiangxi,
+      </if>
+      <if test="hJingdu != null" >
+        h_jingdu,
+      </if>
+      <if test="hWeidu != null" >
+        h_weidu,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="hSid != null" >
+        #{hSid,jdbcType=VARCHAR},
+      </if>
+      <if test="hShengfen != null" >
+        #{hShengfen,jdbcType=VARCHAR},
+      </if>
+      <if test="hCity != null" >
+        #{hCity,jdbcType=VARCHAR},
+      </if>
+      <if test="hXiangxi != null" >
+        #{hXiangxi,jdbcType=VARCHAR},
+      </if>
+      <if test="hJingdu != null" >
+        #{hJingdu,jdbcType=VARCHAR},
+      </if>
+      <if test="hWeidu != null" >
+        #{hWeidu,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dx21601.pojo.Hours" >
+    update hours
+    <set >
+      <if test="hSid != null" >
+        h_sid = #{hSid,jdbcType=VARCHAR},
+      </if>
+      <if test="hShengfen != null" >
+        h_shengfen = #{hShengfen,jdbcType=VARCHAR},
+      </if>
+      <if test="hCity != null" >
+        h_city = #{hCity,jdbcType=VARCHAR},
+      </if>
+      <if test="hXiangxi != null" >
+        h_xiangxi = #{hXiangxi,jdbcType=VARCHAR},
+      </if>
+      <if test="hJingdu != null" >
+        h_jingdu = #{hJingdu,jdbcType=VARCHAR},
+      </if>
+      <if test="hWeidu != null" >
+        h_weidu = #{hWeidu,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dx21601.pojo.Hours" >
+    update hours
+    set h_sid = #{hSid,jdbcType=VARCHAR},
+      h_shengfen = #{hShengfen,jdbcType=VARCHAR},
+      h_city = #{hCity,jdbcType=VARCHAR},
+      h_xiangxi = #{hXiangxi,jdbcType=VARCHAR},
+      h_jingdu = #{hJingdu,jdbcType=VARCHAR},
+      h_weidu = #{hWeidu,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

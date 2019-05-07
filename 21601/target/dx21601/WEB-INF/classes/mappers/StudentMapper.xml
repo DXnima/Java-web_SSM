@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dx21601.dao.StudentMapper" >
+  <resultMap id="BaseResultMap" type="com.dx21601.pojo.Student" >
+    <constructor >
+      <idArg column="s_sid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="s_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="s_sex" jdbcType="CHAR" javaType="java.lang.String" />
+      <arg column="s_number" jdbcType="CHAR" javaType="java.lang.String" />
+      <arg column="s_birthday" jdbcType="DATE" javaType="java.util.Date" />
+      <arg column="s_password" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="s_sushehao" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    s_sid, s_name, s_sex, s_number, s_birthday, s_password, s_sushehao
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from student
+    where s_sid = #{sSid,jdbcType=VARCHAR}
+  </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from student
+    where s_sid = #{sSid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.dx21601.pojo.Student" >
+    insert into student (s_sid, s_name, s_sex, 
+      s_number, s_birthday, s_password, 
+      s_sushehao)
+    values (#{sSid,jdbcType=VARCHAR}, #{sName,jdbcType=VARCHAR}, #{sSex,jdbcType=CHAR}, 
+      #{sNumber,jdbcType=CHAR}, #{sBirthday,jdbcType=DATE}, #{sPassword,jdbcType=VARCHAR}, 
+      #{sSushehao,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dx21601.pojo.Student" >
+    insert into student
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sSid != null" >
+        s_sid,
+      </if>
+      <if test="sName != null" >
+        s_name,
+      </if>
+      <if test="sSex != null" >
+        s_sex,
+      </if>
+      <if test="sNumber != null" >
+        s_number,
+      </if>
+      <if test="sBirthday != null" >
+        s_birthday,
+      </if>
+      <if test="sPassword != null" >
+        s_password,
+      </if>
+      <if test="sSushehao != null" >
+        s_sushehao,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sSid != null" >
+        #{sSid,jdbcType=VARCHAR},
+      </if>
+      <if test="sName != null" >
+        #{sName,jdbcType=VARCHAR},
+      </if>
+      <if test="sSex != null" >
+        #{sSex,jdbcType=CHAR},
+      </if>
+      <if test="sNumber != null" >
+        #{sNumber,jdbcType=CHAR},
+      </if>
+      <if test="sBirthday != null" >
+        #{sBirthday,jdbcType=DATE},
+      </if>
+      <if test="sPassword != null" >
+        #{sPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="sSushehao != null" >
+        #{sSushehao,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dx21601.pojo.Student" >
+    update student
+    <set >
+      <if test="sName != null" >
+        s_name = #{sName,jdbcType=VARCHAR},
+      </if>
+      <if test="sSex != null" >
+        s_sex = #{sSex,jdbcType=CHAR},
+      </if>
+      <if test="sNumber != null" >
+        s_number = #{sNumber,jdbcType=CHAR},
+      </if>
+      <if test="sBirthday != null" >
+        s_birthday = #{sBirthday,jdbcType=DATE},
+      </if>
+      <if test="sPassword != null" >
+        s_password = #{sPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="sSushehao != null" >
+        s_sushehao = #{sSushehao,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where s_sid = #{sSid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dx21601.pojo.Student" >
+    update student
+    set s_name = #{sName,jdbcType=VARCHAR},
+      s_sex = #{sSex,jdbcType=CHAR},
+      s_number = #{sNumber,jdbcType=CHAR},
+      s_birthday = #{sBirthday,jdbcType=DATE},
+      s_password = #{sPassword,jdbcType=VARCHAR},
+      s_sushehao = #{sSushehao,jdbcType=VARCHAR}
+    where s_sid = #{sSid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectBySsid" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from student
+    where s_sid = #{sSid,jdbcType=VARCHAR}
+  </select>
+</mapper>
